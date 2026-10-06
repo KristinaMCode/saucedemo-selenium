@@ -10,14 +10,13 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class InventoryPage {
-    private final WebDriver driver;
+public class InventoryPage extends HeaderPage {
     private final By appLogo = By.className("app_logo");
     private final By productsHeader = By.className("header_secondary_container");
     private final By inventoryList = By.className("inventory_list");
 
     public InventoryPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     private static final Logger log = LoggerFactory.getLogger(InventoryPage.class);

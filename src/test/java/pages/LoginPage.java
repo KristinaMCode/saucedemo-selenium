@@ -13,8 +13,7 @@ import java.io.Console;
 
 import static utils.TestData.*;
 
-public class LoginPage {
-    private WebDriver driver;
+public class LoginPage extends BasePage{
     private final By usernameField = By.id("user-name");
     private final By passwordField = By.id("password");
     private final By loginButton = By.id("login-button");
@@ -22,7 +21,7 @@ public class LoginPage {
     private final By error = By.tagName("h3");
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+       super(driver);
     }
 
     private static final Logger log = LoggerFactory.getLogger(LoginPage.class);
