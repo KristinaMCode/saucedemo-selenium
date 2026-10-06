@@ -6,6 +6,7 @@ Feature: login
   Scenario: Successful login
     When the user logs in "standard" with valid password
     Then the inventory page is displayed
+    Then the header is displayed
 
   Scenario Outline: Unsuccessful login
     When the user logs in with username "<username>" and password "<password>"

@@ -44,7 +44,6 @@ public class LoginSteps {
     public void theInventoryPageIsDisplayed() {
         inventoryPage.waitUntilLoaded();
         Assert.assertEquals(inventoryPage.getUrl(), ConfigReader.get("inventory.url"));
-        Assert.assertEquals(inventoryPage.getLogoText(), "Swag Labs");
     }
 
     @Then("the error message {string} is displayed")
