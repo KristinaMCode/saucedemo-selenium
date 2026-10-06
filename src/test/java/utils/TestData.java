@@ -3,6 +3,7 @@ package utils;
 public class TestData {
 
     public static final String LOGO_TEXT = "Swag Labs";
+    public static final String CART_TEXT = "Your Cart";
 
     public static final String ERROR_EMPTY_USERNAME =
             "Epic sadface: Username is required";

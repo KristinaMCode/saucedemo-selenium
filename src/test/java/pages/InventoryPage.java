@@ -11,7 +11,6 @@ import org.testng.Assert;
 import java.time.Duration;
 
 public class InventoryPage extends HeaderPage {
-    private final By appLogo = By.className("app_logo");
     private final By productsHeader = By.className("header_secondary_container");
     private final By inventoryList = By.className("inventory_list");
 
@@ -31,14 +30,14 @@ public class InventoryPage extends HeaderPage {
         return driver.getCurrentUrl();
     }
 
-    public String getLogoText() {
-        log.debug("Assert inventory logo");
-        return driver.findElement(appLogo).getText();
-
+    public boolean assertProductsHeader() {
+        return driver.findElement(productsHeader).isDisplayed();
     }
 
-    public void assertProductsHeader() {
-        Assert.assertTrue(driver.findElement(productsHeader).isDisplayed());
-    }
 
+    public void addToCart(String item) {
+        item = item.replace(" ", "-").toLowerCase();
+        By addToCart = By.id("add-to-cart-" + item);
+        driver.findElement(addToCart).click();
+    }
 }
