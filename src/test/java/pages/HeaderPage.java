@@ -9,6 +9,8 @@ public abstract class HeaderPage extends BasePage {
     private final By logoTitle;
     private final By menuButton;
     private final By shoppingCart;
+    private final By linkToShopingCart;
+    private final By shoppingCartItems;
 
 
     public HeaderPage(WebDriver driver) {
@@ -16,6 +18,9 @@ public abstract class HeaderPage extends BasePage {
         this.logoTitle = By.className("app_logo");
         this.menuButton = By.id("react-burger-menu-btn");
         this.shoppingCart = By.id("shopping_cart_container");
+        this.linkToShopingCart = By.className("shopping_cart_link");
+        this.shoppingCartItems = By.className("shopping_cart_badge");
+
     }
 
     private static final Logger log = LoggerFactory.getLogger(HeaderPage.class);
@@ -34,6 +39,14 @@ public abstract class HeaderPage extends BasePage {
     public boolean isCartDisplayed(){
         log.info("Verifying Cart element is displayed on Header page menu.");
         return driver.findElement(shoppingCart).isDisplayed();
+    }
+
+    public String getNumberOfItemInCart(){
+       return driver.findElement(shoppingCartItems).getText();
+    }
+
+    public void openCart(){
+        driver.findElement(linkToShopingCart).click();
     }
 
 }
