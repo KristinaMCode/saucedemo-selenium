@@ -2,12 +2,14 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
 
 public class CartPage extends HeaderPage {
     private final By title = By.xpath("//div[@class='header_secondary_container']//span[@class='title']");
@@ -29,5 +31,11 @@ public class CartPage extends HeaderPage {
 
     public String getItemName() {
         return driver.findElement(itemInCart).getText();
+    }
+
+    public List<String> getItemNames() {
+        return driver.findElements(itemInCart).stream()
+                .map(WebElement::getText)
+                .toList();
     }
 }
