@@ -34,7 +34,6 @@ public class InventoryPage extends HeaderPage {
         return driver.findElement(productsHeader).isDisplayed();
     }
 
-
     public void addToCart(String item) {
         item = item.replace(" ", "-").toLowerCase();
         By addToCart = By.id("add-to-cart-" + item);

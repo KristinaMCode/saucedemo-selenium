@@ -32,14 +32,15 @@ public class InventorySteps {
         Assert.assertEquals(cartPage.getTitle(), TestData.CART_TEXT);
     }
     @When("user adds {string} to the cart")
-    public void userAddsItemToCart(String item) {
-        inventoryPage.addToCart(item);
-    }
+    public void userAddsItemToCart(String items) {
+        for (String item : items.split(",\\s*")) {
+            inventoryPage.addToCart(item);
+        }    }
+
 
     @Then("the cart badge shows {string}")
     public void userVerifiesNumberOfItemsInCart(String number) {
         Assert.assertEquals(inventoryPage.getNumberOfItemInCart(), number);
     }
-
 
 }
