@@ -43,4 +43,9 @@ public class InventorySteps {
         Assert.assertEquals(inventoryPage.getNumberOfItemInCart(), number);
     }
 
+    @When("user removes {string} item")
+    public void userRemovesItem(String item){
+        inventoryPage.removeItem(item);
+    }
+
 }
