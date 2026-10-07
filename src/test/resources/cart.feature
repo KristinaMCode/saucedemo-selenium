@@ -25,5 +25,20 @@ Feature: Cart
     And the cart page header shows "<number>" item
 
     Examples:
-      | number | items    |
-      | 2      |  Sauce Labs Backpack, Sauce Labs Bike Light  |
+      | number | items                                      |
+      | 2      | Sauce Labs Backpack, Sauce Labs Bike Light |
+
+
+  Scenario Outline: Add <number> items to the cart and removes item
+    When user adds "<items>" to the cart
+    Then the cart badge shows "<number>"
+    When user removes "<removedItem>" item
+    Then the cart badge shows "<newCount>"
+    When user opens the cart
+    Then the cart page is displayed
+    And user verifies "<remaining>" are in the cart
+    And the cart page header shows "<newCount>" item
+
+    Examples:
+      | number | items                                                         | removedItem           | remaining                              | newCount |
+      | 3      | Sauce Labs Backpack, Sauce Labs Bike Light, Sauce Labs Onesie | Sauce Labs Bike Light | Sauce Labs Backpack, Sauce Labs Onesie | 2        |

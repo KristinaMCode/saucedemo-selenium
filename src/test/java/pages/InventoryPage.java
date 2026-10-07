@@ -39,4 +39,10 @@ public class InventoryPage extends HeaderPage {
         By addToCart = By.id("add-to-cart-" + item);
         driver.findElement(addToCart).click();
     }
+
+    public void removeItem(String item) {
+        item = item.replace(" ", "-").toLowerCase();
+        By removeItem = By.id("remove-" + item);
+        driver.findElement(removeItem).click();
+    }
 }
